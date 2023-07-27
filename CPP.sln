@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Операции деления", "1. Операции деления", "{54C168F9-972F-4FA5-8443-362D0BA4A89C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DivisionOperations", "DivisionOperations\DivisionOperations.vcxproj", "{23744C9C-31E1-48D1-A68E-51351074F78E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Задачи", "Задачи", "{975464F7-8368-4C99-924A-7538EC9E0A75}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Сумма_цифр_трёхзначного_числа", "Сумма_цифр_трёхзначного_числа\Сумма_цифр_трёхзначного_числа.vcxproj", "{DFE1EDE2-8A1E-48FD-AD89-758B5CAC1F0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Условные конструкции", "2. Условные конструкции", "{60065E9F-EE7D-44D4-B54E-2F8A962F6DD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23744C9C-31E1-48D1-A68E-51351074F78E} = {54C168F9-972F-4FA5-8443-362D0BA4A89C}
+		{975464F7-8368-4C99-924A-7538EC9E0A75} = {54C168F9-972F-4FA5-8443-362D0BA4A89C}
+		{DFE1EDE2-8A1E-48FD-AD89-758B5CAC1F0B} = {975464F7-8368-4C99-924A-7538EC9E0A75}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23744C9C-31E1-48D1-A68E-51351074F78E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{23744C9C-31E1-48D1-A68E-51351074F78E}.Debug|Any CPU.Build.0 = Debug|Win32
+		{23744C9C-31E1-48D1-A68E-51351074F78E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{23744C9C-31E1-48D1-A68E-51351074F78E}.Release|Any CPU.Build.0 = Release|Win32
+		{DFE1EDE2-8A1E-48FD-AD89-758B5CAC1F0B}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{DFE1EDE2-8A1E-48FD-AD89-758B5CAC1F0B}.Debug|Any CPU.Build.0 = Debug|Win32
+		{DFE1EDE2-8A1E-48FD-AD89-758B5CAC1F0B}.Release|Any CPU.ActiveCfg = Release|Win32
+		{DFE1EDE2-8A1E-48FD-AD89-758B5CAC1F0B}.Release|Any CPU.Build.0 = Release|Win32
+	EndGlobalSection
+EndGlobal
