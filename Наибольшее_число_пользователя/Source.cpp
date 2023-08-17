@@ -4,21 +4,21 @@ using namespace std;
 
 int main()
 {
-    int num,max,chain;
+    int num, max, chain,maxpos1,maxpos2;
     chain = 0;
     cin>> num;
     max = num;
     while (num != 0) {
         if (max < num) {
             max = num;
-            chain = 0;
+            maxpos1 = chain;
         }
-        if (max = num) {
-            chain += 1;
+        if (num == max) {
+            maxpos2 = chain;
         }
-
+        chain += 1;
         cin >> num;
     }
-    cout << max << " " << chain;
+    cout << max << " " << maxpos1<<" " << maxpos2;
 
 }
