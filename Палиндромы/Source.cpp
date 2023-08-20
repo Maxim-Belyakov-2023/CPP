@@ -2,10 +2,18 @@
 #include <cmath>
 using namespace std;
 bool is_palindrome(int number) {
-	if (number % 10 == (number / 1000)%10 && (number / 100) % 10 == (number / 10) % 10) {
+	int temp,num1;
+	temp = 0;
+	num1 = number;
+	while (number > 0) {
+		temp = (temp * 10) + (number % 10);
+		number /= 10;
+	}
+	if (temp == num1) {
 		return true;
 	}
 	return false;
+
 }
 int main() {
 	int num1, num2;
