@@ -2,22 +2,21 @@
 using namespace std;
 
  int main(){
-	int height,number,temp=0;
+	int number;
 	cin >> number;
 	int* arr = new int[number] {};
 	for (int i = 0; i < number; i++) {
 		cin >> arr[i];
 	}
 	for (int i = 0; i < number; i++) {
-		temp = arr[number];
-		if (arr[i] < temp) {
+		if (arr[i] < arr[number-1])
+		{
 			cout << i+1;
 			break;
-
 		}
-		else if (arr[i] = temp) {
-			cout << i + 2;
-			break;
+		if (arr[number - 2] == arr[number-1])
+		{
+			cout << number-1;
 		}
 	}
 	return 0;
