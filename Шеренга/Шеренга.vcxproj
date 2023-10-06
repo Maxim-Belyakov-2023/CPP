@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{4c06ecc4-b25d-44f7-9e50-7b3111f300aa}</ProjectGuid>
-    <RootNamespace>Большесвоихсоседей</RootNamespace>
+    <RootNamespace>Шеренга</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Шеренга</ProjectName>
   </PropertyGroup>
