@@ -47,8 +47,8 @@ int main(int argc, char* argv[])
     int row, column;
     cin >> row >> column;
     int** matr = CreateMatrix(row, column);
-    CrossFill(matr, row);
-    PrintMatrix(matr, row, column);
+    ChessFill(matr, row, column);
+    PrintMatrix(matr,row,column);
 
     return 0;
 }
