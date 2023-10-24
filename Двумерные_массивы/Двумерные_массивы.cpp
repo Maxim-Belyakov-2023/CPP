@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
     setlocale(0, "RU");
     int row = 6, col = 8;
     int** matr = GetMatrix(row, col);
-    RandomFill(matr, row, col);
+    
     PrintMatrix(matr, row, col);
     std::cout << "Сумма элементов диагоналей = " << SumDiag(matr, row, col);
     DeleteMatrix(matr, row, col);
