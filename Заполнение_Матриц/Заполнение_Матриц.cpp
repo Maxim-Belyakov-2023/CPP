@@ -2,11 +2,12 @@
 #include <iomanip>
 #include <Windows.h>
 using namespace std;
+
 void PrintMatrix(int** matrix, int row, int column)
 {
-    for (int i =0; i < row; i++)
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j< column;j++)
+        for (int j = 0; j < column; j++)
         {
             cout << setw(5) << matrix[i][j] << " ";
         }
@@ -14,7 +15,8 @@ void PrintMatrix(int** matrix, int row, int column)
     }
     cout << endl;
 }
-int** ChessFill(int** matrix, int row, int column)
+
+void ChessFill(int** matrix, int row, int column)
 {
     int count = 1;
     for (int i = 0; i < row; i++)
@@ -32,7 +34,20 @@ int** ChessFill(int** matrix, int row, int column)
             }
         }
     }
-    return matrix;
+}
+
+void CrossFill(int** matrix, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            if (j == size - i or j == i)
+            {
+                matrix[i][j] = 1;
+            }
+        }
+    }
 }
 
 int** CreateMatrix(int row, int column)
@@ -51,7 +66,7 @@ int main(int argc, char* argv[])
     cin >> row >> column;
     int** matr = CreateMatrix(row, column);
     ChessFill(matr, row, column);
-    PrintMatrix(matr,row,column);
+    PrintMatrix(matr, row, column);
 
     return 0;
 }
