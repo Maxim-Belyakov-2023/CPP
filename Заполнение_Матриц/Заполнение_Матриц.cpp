@@ -2,11 +2,12 @@
 #include <iomanip>
 #include <Windows.h>
 using namespace std;
+
 void PrintMatrix(int** matrix, int row, int column)
 {
-    for (int i =0; i < row; i++)
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j< column;j++)
+        for (int j = 0; j < column; j++)
         {
             cout << setw(5) << matrix[i][j] << " ";
         }
@@ -14,25 +15,21 @@ void PrintMatrix(int** matrix, int row, int column)
     }
     cout << endl;
 }
-int** ChessFill(int** matrix, int row, int column)
+
+void ChessFill(int** matrix, int row, int column)
 {
-    int count = 1;
     for (int i = 0; i < row; i++)
-    {
         for (int j = 0; j < column; j++)
-        {
-            matrix[i][j] = count;
-            if (count == 0)
-            {
-                count = 1;
-            }
-            else
-            {
-                count = 0;
-            }
-        }
+            matrix[i][j] = (i + j) % 2;
+}
+
+void CrossFill(int** matrix, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        matrix[i][i] = 1;
+        matrix[i][size - i - 1] = 1;
     }
-    return matrix;
 }
 
 int** CreateMatrix(int row, int column)
@@ -50,8 +47,8 @@ int main(int argc, char* argv[])
     int row, column;
     cin >> row >> column;
     int** matr = CreateMatrix(row, column);
-    ChessFill(matr, row, column);
-    PrintMatrix(matr,row,column);
+    CrossFill(matr, row);
+    PrintMatrix(matr, row, column);
 
     return 0;
 }
