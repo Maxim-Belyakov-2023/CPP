@@ -2,7 +2,21 @@
 #include <iomanip>
 #include <Windows.h>
 using namespace std;
-
+void QuadrantsFill(int** matrix , int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        matrix[i][i] = 0;
+        matrix[i][size - i - 1] = 0;
+    }
+    for(int i = 0; i < size; i++)
+    {
+        for (int j = 0; j<size; j++)
+        {
+            if()
+        }
+    }
+}
 void PrintMatrix(int** matrix, int row, int column)
 {
     for (int i = 0; i < row; i++)
