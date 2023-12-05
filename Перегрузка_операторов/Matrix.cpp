@@ -5,6 +5,7 @@
 
 Matrix::Matrix(int size) : size(size)
 {
+    srand(time(0));
     this->matr = new double*[size];
     for (int i = 0; i < size; ++i)
     {
@@ -21,14 +22,14 @@ Matrix::Matrix(double** matrix, int size) : size(size)
     // TODO
 }
 
-Matrix* Matrix::operator+( Matrix* matrix)
+Matrix Matrix::operator+(Matrix matrix)
 {
     // TODO: Если размер матриц не совпадает, генерировать исключение
     Matrix* tmp = new Matrix(this->size);
     for (int i = 0; i < this->size; ++i)
         for (int j = 0; j < this->size; ++j)
-            tmp->matr[i][j] = this->matr[i][j] + matrix->matr[i][j];
-    return tmp;
+            tmp->matr[i][j] = this->matr[i][j] + matrix.matr[i][j];
+    return *tmp;
 }
 
 Matrix Matrix::operator+(double number)
@@ -67,11 +68,16 @@ std::ostream& operator<<(std::ostream& stream, const Matrix* matrix)
     {
         for (int j = 0; j < matrix->size; ++j)
         {
-            stream << std::left << std::setw(4) << std::setprecision(2) << matrix->matr[i][j];
+            stream << std::left << std::setw(10) << std::fixed << std::setprecision(2) << matrix->matr[i][j];
         }
         stream << std::endl;
     }
     return stream;
+}
+
+std::ostream& operator<<(std::ostream& stream, Matrix matrix)
+{
+    return operator<<(stream, &matrix);
 }
 
 std::istream& operator>>(std::istream& stream, const Matrix* matrix)
@@ -88,7 +94,6 @@ std::istream& operator>>(std::istream& stream, const Matrix* matrix)
 
 void Matrix::RandomGenerate()
 {
-    srand(time(0));
     for(int i = 0; i < size; i++ )
     {
         for (int j = 0; j < size; j++)
