@@ -11,10 +11,12 @@ Date::Date(int day, int month, int year) : day(day), month(month), year(year)
 Date::Date() : day(1), month(1), year(1970)
 {
 }
+
 void Date::Print()
 {
-    cout << day << "." << month << "." << year << endl; 
+    cout << day << "." << month << "." << year << endl;
 }
+
 void Date::AddDay()
 {
     int monthmax = 28 + (month + abs(month / 8) / 2 + 2 / month + 2 * (abs(1 / month)));

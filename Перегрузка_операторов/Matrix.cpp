@@ -1,11 +1,7 @@
 #include "Matrix.h"
 
-#include <iomanip>
-#include <ostream>
-
 Matrix::Matrix(int size) : size(size)
 {
-    srand(time(0));
     this->matr = new double*[size];
     for (int i = 0; i < size; ++i)
     {
@@ -22,7 +18,7 @@ Matrix::Matrix(double** matrix, int size) : size(size)
     // TODO
 }
 
-Matrix Matrix::operator+(Matrix matrix)
+Matrix Matrix::operator+(Matrix matrix) const
 {
     // TODO: Если размер матриц не совпадает, генерировать исключение
     Matrix* tmp = new Matrix(this->size);
@@ -32,7 +28,7 @@ Matrix Matrix::operator+(Matrix matrix)
     return *tmp;
 }
 
-Matrix Matrix::operator+(double number)
+Matrix Matrix::operator+(double number) const
 {
     Matrix* tmp = new Matrix(this->size);
     for (int i = 0; i < this->size; ++i)
@@ -45,20 +41,60 @@ Matrix Matrix::operator+(double number)
     return *tmp;
 }
 
-Matrix Matrix::operator*(const Matrix* matrix)
+Matrix Matrix::operator*(const Matrix* matrix) const
 {
     Matrix* tmp = new Matrix(this->size);
     for (int i = 0; i < this->size; ++i)
-    {
         for (int j = 0; j < this->size; ++j)
-        {
             for ( int k = 0; k< this->size;++k)
-            {
                 tmp->matr[i][j]+=this->matr[i][k]*matrix->matr[j][k];
-            }
+    return *tmp;
+}
+
+Matrix& Matrix::operator++()
+{
+    for (int i = 0; i < this->size; ++i)
+    {
+        for (int j = 0; j < this->size; j++)
+        {
+            this->matr[i][j]++;
         }
     }
-    return *tmp;
+
+    return *this;
+}
+
+Matrix& Matrix::operator++(int) const
+{
+    Matrix tmp = *this;
+    for (int i = 0; i < this->size; ++i)
+    {
+        for (int j = 0; j < this->size; j++)
+        {
+            this->matr[i][j]++;
+        }
+    }
+    return tmp;
+}
+
+bool Matrix::operator==(const Matrix& matrix) const
+{
+    if (this->size != matrix.size)
+        return false;
+    for (int i = 0; i < this->size; ++i)
+    {
+        for (int j = 0; j < this->size; j++)
+        {
+            if (matrix.matr[i][j] != matr[i][j])
+                return false;
+        }
+    }
+    return true;
+}
+
+bool Matrix::operator!=(const Matrix& matrix) const
+{
+    return !(*this == matrix);
 }
 
 
@@ -70,7 +106,7 @@ std::ostream& operator<<(std::ostream& stream, const Matrix* matrix)
         {
             stream << std::left << std::setw(10) << std::fixed << std::setprecision(2) << matrix->matr[i][j];
         }
-        stream << std::endl;
+        stream << '\n';
     }
     return stream;
 }
@@ -92,16 +128,13 @@ std::istream& operator>>(std::istream& stream, const Matrix* matrix)
     return stream;
 }
 
-void Matrix::RandomGenerate()
+void Matrix::RandomGenerate() const
 {
     for(int i = 0; i < size; i++ )
     {
         for (int j = 0; j < size; j++)
         {
-            this->matr[i][j] = (double)rand() / RAND_MAX * 100;
+            this->matr[i][j] = static_cast<double>(rand()) / RAND_MAX * 100;
         }
     }
 }
-
-
-// / * - + > < >= <= == != ++ -- [] () :: . % & | << >> ~ ^ += -= *= /= %= |= &= <<= >>= ^= ~= -> new delete !
