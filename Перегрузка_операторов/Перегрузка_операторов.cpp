@@ -7,8 +7,8 @@
 int main(int argc, char* argv[])
 {
     srand(time(NULL));
-    Matrix matrix1(5);
-    Matrix matrix2(5);
+    Matrix matrix1(2);
+    Matrix matrix2(2);
     matrix1.RandomGenerate();
     matrix2.RandomGenerate();
     std::cout << matrix1 << '\n';
@@ -17,7 +17,8 @@ int main(int argc, char* argv[])
     matrix1++;
     std::cout << matrix1 << '\n';
     if (matrix1 != matrix2)
-        std::cout << "Not Same";
+        std::cout << "Not Same\n";
+    std::cout << "Det = " <<static_cast<double>(matrix1);
     return 0;
 }
 

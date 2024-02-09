@@ -25,7 +25,10 @@ public:
     bool operator==(const Matrix& matrix) const;
     bool operator!=(const Matrix& matrix) const;
 
+    // ()
+    operator double();
 
+    // const double& operator[](int n) const;
 
     // << >>
     friend std::ostream& operator<<(std::ostream& stream, const Matrix* matrix);
@@ -35,10 +38,10 @@ public:
     void RandomGenerate() const;
 };
 
-
+// =
 // && || !
 // []
-// ()
+
 // & | << >> ~ ^
 // += -= *= /= %= |= &= <<= >>= ^= ~=
 // * -> new delete ,

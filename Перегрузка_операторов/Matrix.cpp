@@ -97,6 +97,38 @@ bool Matrix::operator!=(const Matrix& matrix) const
     return !(*this == matrix);
 }
 
+Matrix::operator double()
+{
+    double det = 1.0;
+    for (int i = 0; i < this->size; i++) {
+        int pivot = i;
+        for (int j = i + 1; j < this->size; j++) {
+            if (abs(matr[j][i]) > abs(matr[pivot][i])) {
+                pivot = j;
+            }
+        }
+        if (pivot != i) {
+            std::swap(matr[i], matr[pivot]);
+            det *= -1;
+        }
+        if (matr[i][i] == 0) {
+            return 0;
+        }
+        det *= matr[i][i];
+        for (int j = i + 1; j < this->size; j++) {
+            double factor = matr[j][i] / matr[i][i];
+            for (int k = i + 1; k < this->size; k++) {
+                matr[j][k] -= factor * matr[i][k];
+            }
+        }
+    }
+    return det;
+}
+
+/*const double& Matrix::operator[](int n) const
+{
+
+}*/
 
 std::ostream& operator<<(std::ostream& stream, const Matrix* matrix)
 {
