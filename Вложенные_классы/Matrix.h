@@ -4,25 +4,27 @@
 class Matrix
 {
 private:
+    int col;
+    int row;
     // Вложенный класс
     class MatrixRow
     {
     private:
         double* values;
-        int size;
+        int col;
     public:
         MatrixRow();
-        MatrixRow(int size);
+        MatrixRow(int col);
 
         double& operator[](int n);
     };
 
     MatrixRow *matr;
-    int size;
+    
 public:
 
-    Matrix(int size);
-    Matrix(double** matrix, int size);
+    Matrix(int row,int col);
+    Matrix(double** matrix, int row,int col);
 
     // / * - + %
     Matrix operator+(Matrix matrix) const;
@@ -49,8 +51,8 @@ public:
     friend std::ostream& operator<<(std::ostream& stream, const Matrix* matrix);
     friend std::ostream& operator<<(std::ostream& stream, Matrix matrix);
     friend std::istream& operator>>(std::istream& stream, const Matrix* matrix);
-
-    void RandomGenerate() const;
+    Matrix& operator,(const Matrix& matrix);
+    void RandomGenerate();
 };
 
 // =
