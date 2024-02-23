@@ -99,26 +99,36 @@ bool Matrix::operator!=(const Matrix& matrix) const
 
 Matrix::operator double()
 {
+    int size1 = this->size;
+    int** matrix= new int* [this->size];
+    for(int i = 0; i< size1;i++)
+    {
+        for(int j = 0; j< size1;j++)
+        {
+            int** matrix= new int* [size1];
+            matrix[i][j]=matr[i][j];
+        }
+    }
     double det = 1.0;
-    for (int i = 0; i < this->size; i++) {
+    for (int i = 0; i < size1; i++) {
         int pivot = i;
-        for (int j = i + 1; j < this->size; j++) {
-            if (abs(matr[j][i]) > abs(matr[pivot][i])) {
+        for (int j = i + 1; j < size1; j++) {
+            if (abs(matrix[j][i]) > abs(matrix[pivot][i])) {
                 pivot = j;
             }
         }
         if (pivot != i) {
-            std::swap(matr[i], matr[pivot]);
+            std::swap(matrix[i], matrix[pivot]);
             det *= -1;
         }
-        if (matr[i][i] == 0) {
+        if (matrix[i][i] == 0) {
             return 0;
         }
-        det *= matr[i][i];
-        for (int j = i + 1; j < this->size; j++) {
-            double factor = matr[j][i] / matr[i][i];
-            for (int k = i + 1; k < this->size; k++) {
-                matr[j][k] -= factor * matr[i][k];
+        det *= matrix[i][i];
+        for (int j = i + 1; j < size1; j++) {
+            double factor = matrix[j][i] / matrix[i][i];
+            for (int k = i + 1; k < size1; k++) {
+                matrix[j][k] -= factor * matrix[i][k];
             }
         }
     }
