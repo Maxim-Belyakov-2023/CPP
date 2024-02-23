@@ -232,6 +232,8 @@
     <ClCompile Include="Исключительные_ситуации.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="incorrect_dimension_error.h" />
+    <ClInclude Include="out_of_range_error.h" />
     <ClInclude Include="Matrix.h" />
   </ItemGroup>
   <ItemGroup>

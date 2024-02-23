@@ -1,6 +1,7 @@
 #include "Matrix.h"
 
-#include <iostream>
+#include "incorrect_dimension_error.h"
+#include "out_of_range_error.h"
 
 Matrix::MatrixRow::MatrixRow() = default;
 
@@ -13,10 +14,7 @@ double& Matrix::MatrixRow::operator[](int n)
 {
     if (n < col && n >= 0)
         return this->values[n];
-    else
-    {
-        std::cout << "Выход за границы Row";
-    }
+    throw out_of_range_error("Выход за границы строки");
 }
 
 Matrix::MatrixRow& Matrix::operator[](int n)
@@ -25,7 +23,7 @@ Matrix::MatrixRow& Matrix::operator[](int n)
         return this->matr[n];
     else
     {
-        std::cout << "Выход за границы";
+        throw out_of_range_error("Выход за границы строки");
     }
 }
 
@@ -45,10 +43,19 @@ Matrix Matrix::operator+(Matrix matrix) const
 {
     // TODO: Если размер матриц не совпадает, генерировать исключение
     Matrix* tmp = new Matrix(row, col);
-    for (int i = 0; i < this->row; ++i)
-        for (int j = 0; j < this->col; ++j)
-            tmp->matr[i][j] = this->matr[i][j] + matrix.matr[i][j];
-    return *tmp;
+    if(this->row!= matrix.row || this->col != matrix.col)
+    {
+        throw incorrect_dimension_error("Не совпадают размерности матриц");
+    }
+    else
+    {
+        for (int i = 0; i < this->row; ++i)
+            for (int j = 0; j < this->col; ++j)
+                tmp->matr[i][j] = this->matr[i][j] + matrix.matr[i][j];
+        return *tmp;
+    }
+    
+    
 }
 
 Matrix Matrix::operator+(double number) const
@@ -66,6 +73,7 @@ Matrix Matrix::operator+(double number) const
 
 Matrix Matrix::operator*(const Matrix* matrix) const
 {
+    
     Matrix* tmp = new Matrix(row, matrix->col);
     for (int i = 0; i < this->row; ++i)
         for (int j = 0; j < matrix->col; ++j)

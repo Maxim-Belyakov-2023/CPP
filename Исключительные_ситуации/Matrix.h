@@ -6,7 +6,7 @@ class Matrix
 private:
     int col;
     int row;
-    // Ð’Ð»Ð¾Ð¶ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ»Ð°ÑÑ
+    // Âëîæåííûé êëàññ
     class MatrixRow
     {
     private:
@@ -32,9 +32,9 @@ public:
     Matrix operator*(const Matrix* matrix) const;
 
     // ++(postfix) --(postfix) ++(prefix) --(prefix)
-    // Ð±ÐµÐ· Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¾Ð² - prefix
+    // áåç ïàðàìåòðîâ - prefix
     Matrix& operator++();
-    // c Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¾Ð¼ - postfix
+    // c ïàðàìåòðîì - postfix
     Matrix& operator++(int) const;
 
     // > < >= <= == !=
