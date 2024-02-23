@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
     if (matrix1 != matrix2)
         std::cout << "Not Same\n";
     std::cout << "Det = " <<static_cast<double>(matrix1);
+    std::cout << matrix1 << '\n';
     return 0;
 }
 
