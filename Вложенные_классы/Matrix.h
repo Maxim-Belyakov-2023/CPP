@@ -53,6 +53,7 @@ public:
     friend std::istream& operator>>(std::istream& stream, const Matrix* matrix);
     Matrix& operator,(const Matrix& matrix);
     void RandomGenerate();
+    ~Matrix();
 };
 
 // =

@@ -180,3 +180,8 @@ void Matrix::RandomGenerate() const
         }
     }
 }
+Matrix::~Matrix()
+{
+    delete[] this->matr;
+}
+

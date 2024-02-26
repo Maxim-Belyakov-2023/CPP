@@ -218,3 +218,7 @@ void Matrix::RandomGenerate()
         }
     }
 }
+Matrix::~Matrix()
+{
+    delete[] this->matr;
+}
