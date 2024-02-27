@@ -18,4 +18,5 @@ public:
     static double GetDistance(const Point p1, const Point p2);
 
     static int GetCountOfInstance();
+    
 };

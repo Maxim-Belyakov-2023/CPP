@@ -22,7 +22,7 @@ private:
     MatrixRow *matr;
     
 public:
-
+    ~Matrix();
     Matrix(int row,int col);
     Matrix(double** matrix, int row,int col);
 

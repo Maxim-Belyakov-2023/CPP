@@ -15,4 +15,5 @@ public:
 
     // Метод класса
     double GetDistance(const Point p);
+   
 };

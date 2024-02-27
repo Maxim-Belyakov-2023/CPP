@@ -26,4 +26,5 @@ int Point::GetCountOfInstance()
     return count;
 }
 
+
 unsigned Point::count = 0;
