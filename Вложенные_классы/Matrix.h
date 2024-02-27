@@ -6,12 +6,14 @@ class Matrix
 private:
     int col;
     int row;
+
     // Вложенный класс
     class MatrixRow
     {
     private:
         double* values;
         int col;
+
     public:
         MatrixRow();
         MatrixRow(int col);
@@ -19,12 +21,11 @@ private:
         double& operator[](int n);
     };
 
-    MatrixRow *matr;
-    
-public:
+    MatrixRow* matr;
 
-    Matrix(int row,int col);
-    Matrix(double** matrix, int row,int col);
+public:
+    Matrix(int row, int col);
+    Matrix(double** matrix, int row, int col);
 
     // / * - + %
     Matrix operator+(Matrix matrix) const;

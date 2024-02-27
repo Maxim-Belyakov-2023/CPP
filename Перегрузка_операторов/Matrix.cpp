@@ -46,8 +46,8 @@ Matrix Matrix::operator*(const Matrix* matrix) const
     Matrix* tmp = new Matrix(this->size);
     for (int i = 0; i < this->size; ++i)
         for (int j = 0; j < this->size; ++j)
-            for ( int k = 0; k< this->size;++k)
-                tmp->matr[i][j]+=this->matr[i][k]*matrix->matr[j][k];
+            for (int k = 0; k < this->size; ++k)
+                tmp->matr[i][j] += this->matr[i][k] * matrix->matr[j][k];
     return *tmp;
 }
 
@@ -99,46 +99,50 @@ bool Matrix::operator!=(const Matrix& matrix) const
 
 Matrix::operator double()
 {
-    int size1 = this->size;
-    int** matrix= new int* [this->size];
-    for(int i = 0; i< size1;i++)
+    int** matrix = new int*[this->size];
+    for (int i = 0; i < size; i++)
     {
-        for(int j = 0; j< size1;j++)
+        for (int j = 0; j < size; j++)
         {
-            int** matrix= new int* [size1];
-            matrix[i][j]=matr[i][j];
+            int** matrix = new int*[size];
+            matrix[i][j] = matr[i][j];
         }
     }
     double det = 1.0;
-    for (int i = 0; i < size1; i++) {
+    for (int i = 0; i < size; i++)
+    {
         int pivot = i;
-        for (int j = i + 1; j < size1; j++) {
-            if (abs(matrix[j][i]) > abs(matrix[pivot][i])) {
+        for (int j = i + 1; j < size; j++)
+        {
+            if (abs(matrix[j][i]) > abs(matrix[pivot][i]))
+            {
                 pivot = j;
             }
         }
-        if (pivot != i) {
+        if (pivot != i)
+        {
             std::swap(matrix[i], matrix[pivot]);
             det *= -1;
         }
-        if (matrix[i][i] == 0) {
+        if (matrix[i][i] == 0)
+        {
             return 0;
         }
         det *= matrix[i][i];
-        for (int j = i + 1; j < size1; j++) {
+        for (int j = i + 1; j < size; j++)
+        {
             double factor = matrix[j][i] / matrix[i][i];
-            for (int k = i + 1; k < size1; k++) {
+            for (int k = i + 1; k < size; k++)
+            {
                 matrix[j][k] -= factor * matrix[i][k];
             }
         }
     }
+    for (int i = 0; i < size; ++i)
+        delete[] matrix[i];
+    delete[] matrix;
     return det;
 }
-
-/*const double& Matrix::operator[](int n) const
-{
-
-}*/
 
 std::ostream& operator<<(std::ostream& stream, const Matrix* matrix)
 {
@@ -172,7 +176,7 @@ std::istream& operator>>(std::istream& stream, const Matrix* matrix)
 
 void Matrix::RandomGenerate() const
 {
-    for(int i = 0; i < size; i++ )
+    for (int i = 0; i < size; i++)
     {
         for (int j = 0; j < size; j++)
         {

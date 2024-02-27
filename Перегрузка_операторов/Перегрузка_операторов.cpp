@@ -19,8 +19,5 @@ int main(int argc, char* argv[])
     if (matrix1 != matrix2)
         std::cout << "Not Same\n\n";
     std::cout << "Det = " << static_cast<double>(matrix1) << "\n";
-
-    Matrix matrix3 = matrix1;
-    std::cout << matrix3;
     return 0;
 }
